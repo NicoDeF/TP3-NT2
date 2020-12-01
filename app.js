@@ -22,11 +22,11 @@ new Vue({
             this.turnos = []
         },
         atacar: function () {
-            var daño = this.calcularHeridas(this.rangoAtaque)
-            this.saludMonstruo -= daño;
+            var dano = this.calcularHeridas(this.rangoAtaque)
+            this.saludMonstruo -= dano;
             this.turnos.unshift({
                 esJugador: true,
-                text: 'El jugador golpea al monstruo por ' + daño 
+                text: `El jugador golpea al monstruo por  ${dano}` 
             });
 
             if (this.verificarGanador()) {
@@ -36,11 +36,11 @@ new Vue({
         },
 
         ataqueEspecial: function () {
-            var daño = this.calcularHeridas(this.rangoAtaqueEspecial);
-            this.saludMonstruo -= daño;
+            var dano = this.calcularHeridas(this.rangoAtaqueEspecial);
+            this.saludMonstruo -= dano;
             let evento = {
                 esJugador: true,
-                text: 'El jugador realiza un golpe especial al jugador por ' + daño
+                text: `El jugador realiza un golpe especial al jugador por ${dano}` 
             }
             this.registrarEvento(evento)
             if (this.verificarGanador()) {
@@ -77,11 +77,11 @@ new Vue({
         },
 
         ataqueDelMonstruo: function () {
-            var daño = this.calcularHeridas(this.rangoAtaqueDelMonstruo)
-            this.saludJugador -= daño;
+            var dano = this.calcularHeridas(this.rangoAtaqueDelMonstruo)
+            this.saludJugador -= dano;
             let evento = {
                 esJugador: false,
-                text: 'El monstruo golpea al jugador por ' + daño
+                text: `El monstruo golpea al jugador por ${dano}` 
             };
 
             this.registrarEvento(evento);
